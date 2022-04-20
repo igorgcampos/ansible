@@ -1,0 +1,12 @@
+# Playbook dar apt-get update
+
+- name: Playbook apt-get update
+  hosts: linux
+  tasks:
+
+  - name: Apt-Get Update
+    become: true
+    apt:
+      autoclean: yes
+      update_cache: yes
+      cache_valid_time: 86400

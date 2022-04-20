@@ -1,0 +1,12 @@
+# Lista disco disponivel 
+
+- name: Define host linux
+  hosts: linux
+  tasks:
+
+  - name: List dis usage info
+    become: true
+    shell: df -h | grep /boot
+    register: df
+
+  - debug: var=df.stdout_lines

@@ -1,0 +1,13 @@
+# Playbook para executar o psexec 
+
+- name: Playbook psexec
+  hosts: windows
+  tasks:
+
+  - name: Psexec on Windows
+    psexec:
+      hostname: 192.168.100.222
+      connection_username: igor.admin@telespazio.local
+      connection_password: Gf@web@123
+      executable: cmd.exe
+      arguments: /c ipconfig /all

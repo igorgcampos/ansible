@@ -1,0 +1,9 @@
+# Playbook para ajustar o relogio dos hosts para a timezone correta. No caso America/Sao_Paulo
+
+- name: Define host
+  hosts: linux
+  tasks:
+
+  - name: Setting date and time on the hots
+    become: true
+    shell: timedatectl set-timezone America/Sao_Paulo

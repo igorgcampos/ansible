@@ -1,0 +1,10 @@
+# Playbook para rodar instalar um programa remoto com o modulo chocolatey
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Install app with chocolatey module
+    win_chocolatey:
+      name: googlechrome
+      state: present

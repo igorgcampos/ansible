@@ -1,0 +1,11 @@
+# Playbook para transferir arquivos
+
+- name: Playbook de Transferir Arquivos
+  hosts: all
+  tasks:
+
+  - name: Transferir arquivo de teste
+    become: true
+    copy:
+      src: transfer_test.txt
+      dest: /tmp/tranfer_test.txt

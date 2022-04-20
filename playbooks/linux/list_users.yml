@@ -1,0 +1,12 @@
+# Lista os usuarios da maquina
+
+- name: Define host linux
+  hosts: linux
+  tasks:
+
+  - name: List users 
+    become: true
+    shell: cat /etc/passwd
+    register: cat
+
+  - debug: var=cat.stdout_lines

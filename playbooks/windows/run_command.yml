@@ -1,0 +1,11 @@
+# Playbook para rodar um comando no host remoto e exibir o resultado na tela.
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Roda um comando e exibe na tela o resultado
+    win_command: ipconfig /all
+    register: ipconfig
+
+  - debug: var=ipconfig.stdout_lines

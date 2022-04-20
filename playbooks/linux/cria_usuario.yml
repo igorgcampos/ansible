@@ -1,0 +1,14 @@
+# Playbook para criar usuario e adicionar a um grupo
+
+- name: Criar usuario
+  hosts: linux
+  tasks:
+
+  - name: Create user
+    become: true
+    user:
+      name: sistema
+      createhome: yes
+      shell: /bin/bash
+      group: adm
+      password: "{{ 'password' | password_hash('sha512') }}"

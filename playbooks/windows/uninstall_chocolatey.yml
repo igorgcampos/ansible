@@ -1,0 +1,10 @@
+# Playbook para desinstalar uma aplicacao com o chocolatey
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Desinsta um aplicativo com o modulo chocolatey
+    win_chocolatey: 
+      name: vlc
+      state: absent

@@ -1,0 +1,16 @@
+# Playbook SOMENTE para fazer download do Windows Update
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Downloading updates
+    win_updates:
+        state: downloaded
+        log_path: C:\ansible_wu.txt
+
+  - name: Roda um comando no powershell e exibe na tela o resultado
+    win_shell: Get-Content C:\ansible_wu.txt
+    register: shell
+
+  - debug: var=shell.stdout_lines

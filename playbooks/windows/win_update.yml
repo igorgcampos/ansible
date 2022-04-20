@@ -1,0 +1,20 @@
+# Playbook checar windows update e exibit o conteudo que foi salvo no arquivo para saber se tem update para fazer
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Search-only, return list of found updates (if any).
+    win_updates:
+        category_names: 
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
+        state: searched
+        log_path: C:\ansible_wu.txt
+
+  - name: Roda um comando no powershell e exibe na tela o resultado
+    win_shell: Get-Content C:\ansible_wu.txt
+    register: shell
+
+  - debug: var=shell.stdout_lines

@@ -1,0 +1,12 @@
+# Playbook para verificar a data e hora dos hosts
+
+- name: Define host
+  hosts: linux
+  tasks:
+
+  - name: Date and time
+    become: true
+    shell: date
+    register: date
+
+  - debug: var=date.stdout_lines

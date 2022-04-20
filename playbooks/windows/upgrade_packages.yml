@@ -1,0 +1,10 @@
+# Playbook para fazer o upgrade dos pacotes com o modulo chocolatey
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Upgrade installed packages
+    win_chocolatey:
+      name: all
+      state: latest

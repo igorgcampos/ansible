@@ -1,0 +1,12 @@
+# Roda o comando lsof para exibit portas abertas na maquina
+
+- name: Define host
+  hosts: linux
+  tasks:
+
+  - name: Ports Open
+    become: true
+    shell: lsof -i -P -n | grep LISTEN
+    register: lsof
+
+  - debug: var=lsof.stdout_lines

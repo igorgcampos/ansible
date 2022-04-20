@@ -1,0 +1,12 @@
+# Playbook verificar se o servico esta instalado
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Verifica Servico
+    win_service: 
+      name: spooler
+      state: paused
+      register: service_info
+  - debug: var=service_info
