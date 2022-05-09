@@ -1,7 +1,7 @@
 # Playbook para rodar um comando no host remoto, com o powershell utilizando o modulo win_shell, e exibir o resultado na tela.
 
 - name: Task para rodar nos hosts Windows
-  hosts: estacoes
+  hosts: windows
   tasks:
 
   - name: Roda um comando no powershell e exibe na tela o resultado

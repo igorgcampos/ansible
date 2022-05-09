@@ -5,7 +5,4 @@
   tasks:
 
   - name: Roda um comando no powershell e exibe na tela o resultado
-    win_shell: wmic product where "name like '%Kaspersky%'" get name,version,identifyingNumber
-    register: shell
-
-  - debug: var=shell.stdout_lines
+    win_shell: Start-Process -FilePath "C:\Program Files (x86)\TeamViewer\TeamViewer.exe" -WindowStyle Minimized

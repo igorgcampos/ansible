@@ -1,0 +1,22 @@
+# Playbook para rodar um comando no host remoto, com o powershell utilizando o modulo win_shell, e exibir o resultado na tela.
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Uninstalling Kaspesky Endpoint Security. Roda um comando no powershell e exibe na tela o resultado
+    win_shell: |
+      $app = Get-WmiObject -Class Win32_Product -Filter "Name = 'Kaspersky Endpoint Security for Windows'"
+      $app.Uninstall()
+      $app2 = Get-WmiObject -Class Win32_Product -Filter "Name = 'Agente de Rede do Kaspersky Security Center 11'"
+      $app2.Uninstall()
+    register: shell
+
+  - debug: var=shell.stdout_lines
+
+  - name: Verifica se o programa foi desinstalado
+    win_shell: wmic product where "name like '%Kaspersky%'" get name,version,identifyingNumber
+    register: shell
+
+  - debug: var=shell.stdout_lines
+

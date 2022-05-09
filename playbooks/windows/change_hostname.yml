@@ -1,0 +1,14 @@
+# Playbook para rodar renomear o host remoto.
+
+- name: Task para rodar nos hosts Windows
+  hosts: estacoes
+  tasks:
+
+  - name: Change the hostname
+    win_hostname:
+      name: RJNARAUJO
+    register: res
+
+  - name: Reboot
+    win_reboot:
+    when: res.reboot_required

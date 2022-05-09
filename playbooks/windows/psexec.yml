@@ -1,0 +1,9 @@
+# Playbook para rodar um comando no host remoto, com o psexec utilizando o modulo win_psexec, e exibir o resultado na tela.
+
+- name: Task para rodar nos hosts Windows
+  hosts: estacoes
+  tasks:
+
+  - name: Roda um comando no powershell e exibe na tela o resultado
+    win_psexec:
+      command: regedit.exe

@@ -1,0 +1,10 @@
+# Playbook para rodar um comando no host remoto, com o powershell utilizando o modulo win_shell, e exibir o resultado na tela.
+
+- name: Task para rodar nos hosts Windows
+  hosts: windows
+  tasks:
+
+  - name: Uninstall Kaspesky Endpoint. Roda um comando no powershell e exibe na tela o resultado
+    win_package:
+     product_id: '{1B872D21-6D52-4895-9463-6E66B3EE8431}'
+     state: absent

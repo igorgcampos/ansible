@@ -1,10 +1,10 @@
 # Playbook para enviar mensagem para o usuario na maquina
 
 - name: Task para rodar nos hosts Windows
-  hosts: windows
+  hosts: estacoes
   tasks:
 
   - name: Sending a message to user
     win_msg: 
       display_seconds: 60
-      msg: Ola! Testando mensagem. Esta tela vai fechar em
+      msg: Bora logo, tô com fome!!!
